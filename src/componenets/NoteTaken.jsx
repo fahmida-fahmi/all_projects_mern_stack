@@ -1,30 +1,19 @@
 import React from 'react'
-import NoteForm from './NoteForm'
-import { useState } from 'react'
 
-
-
-const NoteTaken = (props) => {
-  const [note, setNote] = useState([])
-  const [noteTitle, setNoteTitle] = useState('')
-  const [edit, setEdit] = useState(false)
-  const [editTitle, setEditTitle] = useState(null)
+const NoteTaken = () => {
+  const reducerFunc = (currentSate,action)=>{
+    switch (action.type){
+        case 'increase_button': 
+            return currentSate + action.payload
+        case 'decrease_button': 
+            return currentSate - action.payload
+        default : 
+            return currentSate 
+    }
+}
   return (
-    <div className='note-taken'>
-
-      <NoteForm
-        note={note}
-        setNote={setNote}
-        noteTitle={noteTitle}
-        setNoteTitle={setNoteTitle}
-        edit={edit}
-        setEdit={setEdit}
-        editTitle={editTitle}
-        setEditTitle={setEditTitle}
-      />
-    </div>
-
-  );
+    <div>NoteTaken</div>
+  )
 }
 
-export default NoteTaken;
+export default NoteTaken
